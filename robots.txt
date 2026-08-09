@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aurawellnessspa.com/sitemap.xml
+Sitemap: https://jeanjacqueswoodhangy-maker.github.io/aura-wellness-spa/sitemap.xml
