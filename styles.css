@@ -16,13 +16,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background: var(--ivory);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
 }
 
 img {
@@ -64,6 +67,11 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+}
+
+.brand > span:last-child {
+  display: grid;
   min-width: 0;
 }
 
@@ -165,6 +173,7 @@ a {
 
 .hero-content {
   position: relative;
+  width: min(100%, 720px);
   max-width: 720px;
 }
 
@@ -272,6 +281,7 @@ h3 {
 }
 
 .section-heading {
+  width: min(100%, 760px);
   max-width: 760px;
   margin-bottom: 34px;
 }
@@ -298,6 +308,7 @@ h3 {
 .service-card,
 .offers-grid article,
 .booking-form {
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.62);
@@ -567,6 +578,7 @@ h3 {
   border-radius: 8px;
   background: var(--ivory);
   font-weight: 800;
+  overflow-wrap: anywhere;
 }
 
 .info-list {
@@ -726,6 +738,7 @@ h3 {
 }
 
 .price-group {
+  min-width: 0;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -772,14 +785,6 @@ h3 {
   white-space: nowrap;
 }
 
-.price-note {
-  max-width: 640px;
-  margin: 20px auto 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  text-align: center;
-}
-
 .detail-card .button.secondary,
 .contact-card .button.secondary,
 .route-section .button.secondary {
@@ -803,6 +808,8 @@ h3 {
     right: 16px;
     display: grid;
     width: min(280px, calc(100vw - 32px));
+    max-height: calc(100svh - 84px);
+    overflow-y: auto;
     padding: 14px;
     border: 1px solid rgba(255, 250, 242, 0.22);
     border-radius: 8px;
@@ -820,6 +827,10 @@ h3 {
     transform: translateY(0);
     opacity: 1;
     pointer-events: auto;
+  }
+
+  .main-nav a {
+    padding: 12px 4px;
   }
 
   .hero {
@@ -857,6 +868,7 @@ h3 {
 
   .split-media {
     height: 420px;
+    min-height: 320px;
   }
 
   .site-footer {
@@ -869,27 +881,199 @@ h3 {
 }
 
 @media (max-width: 540px) {
+  .site-header {
+    min-height: 64px;
+    padding: 10px 16px;
+    background: linear-gradient(180deg, rgba(25, 31, 29, 0.86), rgba(25, 31, 29, 0.38));
+    backdrop-filter: blur(10px);
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+
   .brand small {
     font-size: 0.58rem;
+    letter-spacing: 0.1em;
   }
 
   .brand strong {
     font-size: 1.22rem;
   }
 
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+  }
+
+  .main-nav {
+    top: 64px;
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+
   .hero {
-    min-height: 86vh;
+    min-height: 100svh;
+    padding: 104px 18px 42px;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(24, 31, 29, 0.42), rgba(24, 31, 29, 0.9)),
+      linear-gradient(90deg, rgba(24, 31, 29, 0.7), rgba(24, 31, 29, 0.18));
   }
 
   h1 {
-    font-size: 3.35rem;
+    max-width: 10ch;
+    font-size: clamp(2.85rem, 15vw, 3.45rem);
+    line-height: 0.96;
+  }
+
+  h2 {
+    font-size: clamp(1.9rem, 10vw, 2.5rem);
+    line-height: 1.08;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+  }
+
+  .hero-copy,
+  .page-hero p:not(.eyebrow),
+  .section-heading p:not(.eyebrow),
+  .split-content p,
+  .booking-copy p {
+    font-size: 1rem;
+    line-height: 1.64;
+  }
+
+  .hero-actions,
+  .route-cta {
+    width: 100%;
   }
 
   .button {
     width: 100%;
+    min-height: 46px;
+    padding-inline: 16px;
+    text-align: center;
+  }
+
+  .section,
+  .route-section {
+    padding: 54px 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .services-grid,
+  .offers-grid,
+  .route-grid,
+  .contact-grid,
+  .gallery-grid,
+  .space-gallery,
+  .video-grid,
+  .price-board {
+    gap: 14px;
   }
 
   .service-card {
     min-height: auto;
+    padding: 22px;
+  }
+
+  .service-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 18px;
+  }
+
+  .split-section,
+  .booking-section {
+    padding: 58px 18px;
+  }
+
+  .split-media {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .feature-list span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .booking-form,
+  .detail-card,
+  .contact-card,
+  .offers-grid article,
+  .price-group {
+    padding: 22px;
+  }
+
+  .booking-form select,
+  .booking-form textarea {
+    font-size: 1rem;
+  }
+
+  .site-footer {
+    gap: 20px;
+    padding: 34px 18px;
+  }
+
+  .site-footer h2 {
+    font-size: 1.55rem;
+  }
+
+  .page-hero {
+    min-height: 42vh;
+    padding: 104px 18px 42px;
+  }
+
+  .page-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.65rem, 13vw, 3.25rem);
+  }
+
+  .gallery-item img {
+    min-height: 240px;
+  }
+
+  .gallery-item:not(.large) img {
+    max-height: none;
+  }
+
+  .gallery-item figcaption,
+  .gallery-note,
+  .media-placeholder,
+  .video-placeholder {
+    padding: 18px;
+  }
+
+  .media-placeholder,
+  .video-placeholder {
+    min-height: 220px;
+  }
+
+  .price-row {
+    gap: 6px;
+  }
+
+  .price-row dd {
+    justify-self: start;
+    white-space: normal;
   }
 }
+
+
+
