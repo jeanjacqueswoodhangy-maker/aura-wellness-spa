@@ -823,6 +823,7 @@ h3 {
       transform 180ms ease;
   }
 
+  .site-header:focus-within .main-nav,
   .main-nav.is-open {
     transform: translateY(0);
     opacity: 1;
@@ -1074,6 +1075,7 @@ h3 {
     white-space: normal;
   }
 }
+
 
 
 
