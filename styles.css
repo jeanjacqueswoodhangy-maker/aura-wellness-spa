@@ -785,12 +785,22 @@ h3 {
   white-space: nowrap;
 }
 
+.split-section .button.secondary,
 .detail-card .button.secondary,
 .contact-card .button.secondary,
 .route-section .button.secondary {
   color: var(--sage);
-  border-color: rgba(111, 127, 89, 0.36);
-  background: transparent;
+  border-color: rgba(111, 127, 89, 0.42);
+  background: rgba(255, 250, 242, 0.68);
+}
+
+.split-section .button.secondary:hover,
+.detail-card .button.secondary:hover,
+.contact-card .button.secondary:hover,
+.route-section .button.secondary:hover {
+  color: var(--ivory);
+  border-color: var(--sage);
+  background: var(--sage);
 }
 
 @media (max-width: 1040px) {
@@ -1075,6 +1085,7 @@ h3 {
     white-space: normal;
   }
 }
+
 
 
 
